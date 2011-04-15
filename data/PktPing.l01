@@ -1,0 +1,76 @@
+/*$Id: PktPing.l01 340 2008-12-23 16:11:32Z ezhenzh $*/
+/*
+ * PktPing - Pocket Ping for S60 3rd
+ * Copyright (C) 2008 Reggie Zhang <reggie.zhang@mobiledev.org.cn>
+ * Licensed under the terms of The GNU Lesser General Public License (LGPLv3):
+ * http://www.opensource.org/licenses/lgpl-3.0.html
+ * 
+ */
+ 
+// localized strings for language: UK English (01)
+#define STR_r_pktping_cpation "Pocket Ping"
+#define STR_r_pktping_short_caption "Pocket Ping"
+
+#define STR_r_pktping_title "Pocket Ping"
+#define STR_r_pktping_ping "Ping"
+#define STR_r_pktping_setting "Settings"
+#define STR_r_pktping_my_address "My Address"
+#define STR_r_pktping_nr_of_ping "Number of Ping"
+#define STR_r_pktping_data_size "Ping Data Size"
+#define STR_r_pktping_dont_fragment "Don't Fragment"
+#define STR_r_pktping_ttl "TTL"
+#define STR_r_pktping_on "On"
+#define STR_r_pktping_off "Off"
+
+#define STR_r_pktping_change_ap "Change Access Point"
+#define STR_r_pktping_not_implemented "Not implemented yet!"
+#define STR_r_pktping_about "About"
+#define STR_r_pktping_about_title "PktPing "KPktPingVersion
+#define STR_r_pktping_about_text_format \
+"Built on:\n"__DATE__" "__TIME__"\n\
+Software version:\n%S\
+OS version:\n%S\n\
+Model id: 0x%x\n\
+Machine id:0x%x\n\
+IMEI: %S\n\
+Copyright (C) Reggie Zhang 2008\nAll rights reserved.\n\
+Email:\n\
+reggie.zhang@mobiledev.org.cn\n\
+Homepage:\n\
+www.mobiledev.org.cn"
+
+#define STR_r_pktping_sel_ap "Select AP first"
+#define STR_r_pktping_not_ready "Active request already ongoing"
+#define STR_r_pktping_disconnected "Not Connected"
+#define STR_r_pktping_please_wait "Please wait..."
+#define STR_r_pktping_connecting "Connecting..."
+#define STR_r_pktping_unknown_state "Unknow state"
+#define STR_r_pktping_connected "Connection Open"
+#define STR_r_pktping_target_host "Target Host"
+#define STR_r_pktping_resloving_host_name "Resolving host name..."
+#define STR_r_pktping_unknown_host_name "Unknown host name."
+#define STR_r_pktping_pinging_format "Pinging %0U [%1U]:"
+#define STR_r_pktping_pinging_ip_format "Pinging %U:"
+#define STR_r_pktping_reply_text_format "Reply from %0U:\fbytes=%0N time=%1Nms TTL=%2N"
+#define STR_r_pktping_request_timed_out "Request timed out."
+#define STR_r_pktping_error_code_format "%U\fErrorCode: %N"
+#define STR_r_pktping_stat_format \
+"Ping statistics:\f\
+%0N valid sent, %1N received, %2N lost, %3N% loss\f\
+Approximate round trip times:\f\
+Min=%4Nms, Max=%5Nms, Avg=%6Nms"
+//round-trip(ms)  min/avg/max = %d/%d/%d
+
+#define STR_r_pktping_stat_short_format \
+"Ping statistics:\f\
+%0N valid sent, %1N received, %2N lost, %3N% loss"
+
+#define STR_r_pktping_connection_lost "Packet connection lost."
+#define STR_r_pktping_none_echo_type_received_format "Non-echo type %N received."
+#define STR_r_pktping_someone_else_packet_received "Someone else's packet received."
+#define STR_r_pktping_out_of_order_packet_received "Out-of-Order  packet received."
+#define STR_r_pktping_show_stat "Show Stat."
+#define STR_r_pktping_cancel "Cancel"
+#define STR_r_pktping_resmue "Resume"
+#define STR_r_pktping_close "Close"
+#define STR_r_pktping_resolving_host "Resolving host..."

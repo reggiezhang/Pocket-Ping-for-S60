@@ -1,0 +1,56 @@
+/*$Id: PktPing.mmp 337 2008-12-22 13:02:37Z ezhenzh $*/
+/*
+ * PktPing - Pocket Ping for S60 3rd
+ * Copyright (C) 2008 Reggie Zhang <reggie.zhang@mobiledev.org.cn>
+ * Licensed under the terms of The GNU Lesser General Public License (LGPLv3):
+ * http://www.opensource.org/licenses/lgpl-3.0.html
+ * 
+ */
+
+TARGET			PktPing.exe
+UID 0x100039CE 0x20020D05
+CAPABILITY          LocalServices NetworkControl NetworkServices ReadUserData UserEnvironment WriteDeviceData WriteUserData
+VENDORID	  	  0
+TARGETTYPE		exe
+EPOCHEAPSIZE 0x10000 0x400000 
+EPOCSTACKSIZE 0x10000
+
+SYSTEMINCLUDE \epoc32\include \epoc32\include\variant \epoc32\include\ecom \epoc32\include\libc
+USERINCLUDE	   ..\inc ..\data
+
+SOURCEPATH		..\data
+START RESOURCE	PktPing.rss
+HEADER
+TARGETPATH resource\apps
+END //RESOURCE
+
+START RESOURCE	PktPing_reg.rss
+TARGETPATH 	  \private\10003a3f\apps
+END //RESOURCE
+
+DOCUMENT PktPing.rss
+
+LIBRARY			euser.lib apparc.lib cone.lib eikcore.lib avkon.lib
+LIBRARY			commonengine.lib efsrv.lib estor.lib eikcoctl.lib eikdlg.lib 
+LIBRARY			eikctl.lib bafl.lib fbscli.lib aknnotify.lib aknicon.lib
+LIBRARY			etext.lib gdi.lib egul.lib insock.lib
+LIBRARY			ecom.lib InetProtUtil.lib http.lib esock.lib sysutil.lib hal.lib apsettingshandlerui.lib commdb.lib
+LIBRARY         estlib.lib form.lib aknskins.lib aknskinsrv.lib aknswallpaperutils.lib
+LIBRARY         etel3rdparty.lib apgrfx.lib ws32.lib
+
+LANG 				01
+
+START BITMAP	PktPing.mbm
+HEADER
+TARGETPATH		\resource\apps
+SOURCEPATH		..\gfx
+SOURCE	c12,1	list_icon.bmp list_icon_mask.bmp
+END
+
+SOURCEPATH		..\src
+
+#ifdef ENABLE_ABIV2_MODE
+DEBUGGABLE
+#endif
+
+SOURCE PktPingView.cpp PktPingViewContainer.cpp PktPingApplication.cpp PktPingAppUi.cpp PktPingDocument.cpp PktPingSettingViewContainer.cpp PktPingSettingView.cpp IntegerSettingItem.cpp PingSettings.cpp LabelSettingItem.cpp ApConnectEngine.cpp ApConnectProgressNotifier.cpp HostResolver.cpp PingController.cpp IcmpPacket.cpp TimeOutTimer.cpp ImeiReader.cpp

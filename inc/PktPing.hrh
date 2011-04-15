@@ -1,0 +1,44 @@
+/*$Id: PktPing.hrh 348 2009-08-28 09:50:39Z ezhenzh $*/
+/*
+ * PktPing - Pocket Ping for S60 3rd
+ * Copyright (C) 2008 Reggie Zhang <reggie.zhang@mobiledev.org.cn>
+ * Licensed under the terms of The GNU Lesser General Public License (LGPLv3):
+ * http://www.opensource.org/licenses/lgpl-3.0.html
+ * 
+ */
+
+#ifndef PKTPING_HRH
+#define PKTPING_HRH
+enum TPktPingViewUids
+{
+	EPktPingContainerViewId = 1,
+	EPktPingSettingViewId = 2
+};
+
+enum TPktPingContainerViewCommands
+{
+	EPktPingContainerViewPingMenuItemCommand = 0x6000,
+	EPktPingCmdPing,
+	EPktPingCmdChangeAp,
+	EPktPingCmdAbout,
+	EPktPingCmdCancelPing,
+	EPktPingCmdShowStat,
+	EPktPingCmdResume,
+	EPktPingcmdEnd
+};
+
+enum TPktPingDlgControls
+{
+	EPktPingMyAddress,
+	EPktPingNrOfPing,
+	EPktPingDataSize,
+	EPktPingFragment,
+	EPktPingTtl,
+	ECommonProgProgress
+};
+
+#define KMaxBufSize 0x10
+#define ICMP_ID 0x0D05
+#define KPktPingVersion "0.4.2"
+
+#endif // PKTPING_HRH

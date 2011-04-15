@@ -1,0 +1,24 @@
+0.4.2 2009/08/28
+    * Fix a bug on E71
+0.4.1 2009/05/14
+    * Fix a bug about cancel access point selection on N95
+0.4.0 2008/12/23
+	* Bug fixing
+0.3.4 2008/12/22
+    * Bug fixing
+    * Handle Termination Key
+    * Handle Packet connection lost while pinging	
+0.3.2 2008/12/21
+	* Bug fixing	
+0.3.1 2008/12/21
+	* Bug fixing
+0.3.0 2008/12/21
+    * Show statistics while pinging
+    * Show statistics when cancel ping
+0.2.0 2008/12/14
+    * Remove don't fragment flag temporarily.
+    * Add ping statistics
+	* Change UID
+0.1.1 2008/12/11
+	* Show IP
+	* Config ping parameters such as nr of ping, data size, fragment flag, ttl

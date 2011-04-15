@@ -1,0 +1,20 @@
+/*$Id: PktPing_reg.loc 303 2008-12-14 14:10:36Z ezhenzh $*/
+/*
+ * PktPing - Pocket Ping for S60 3rd
+ * Copyright (C) 2008 Reggie Zhang <reggie.zhang@mobiledev.org.cn>
+ * Licensed under the terms of The GNU Lesser General Public License (LGPLv3):
+ * http://www.opensource.org/licenses/lgpl-3.0.html
+ * 
+ */
+
+//  LOCALISATION STRINGS
+
+// Caption string for app.
+#define qtn_caption_string "PktPing"
+
+// Short caption string for app.
+#define qtn_short_caption_string "HW"
+
+#define qtn_loc_resource_file_1 "\\resource\\apps\\PktPing"
+
+// End of File

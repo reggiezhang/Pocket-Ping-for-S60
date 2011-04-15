@@ -1,0 +1,203 @@
+/*$Id: PktPingSettingViewContainer.rssi 303 2008-12-14 14:10:36Z ezhenzh $*/
+/*
+ * PktPing - Pocket Ping for S60 3rd
+ * Copyright (C) 2008 Reggie Zhang <reggie.zhang@mobiledev.org.cn>
+ * Licensed under the terms of The GNU Lesser General Public License (LGPLv3):
+ * http://www.opensource.org/licenses/lgpl-3.0.html
+ * 
+ */
+
+#include "PktPing.hrh"
+#include "PktPing.loc"
+
+RESOURCE AVKON_VIEW r_pkt_ping_setting_view
+{
+	cba = R_AVKON_SOFTKEYS_OPTIONS_EXIT;
+	menubar = r_pkt_ping_setting_options_menu;
+}
+
+RESOURCE MENU_BAR r_pkt_ping_setting_options_menu
+{
+	titles =
+	{
+		MENU_TITLE
+		{
+			menu_pane = r_pkt_ping_setting_menu_pane;
+		}
+	};
+}
+
+RESOURCE MENU_PANE r_pkt_ping_setting_menu_pane
+{
+	items =
+	{
+		MENU_ITEM
+		{
+			command = EPktPingCmdPing;
+			txt = STR_r_pktping_ping;
+		},
+		MENU_ITEM
+		{
+			command = EPktPingCmdChangeAp;
+			txt = STR_r_pktping_change_ap;
+		},
+		MENU_ITEM
+		{
+			command = EPktPingCmdAbout;
+			txt = STR_r_pktping_about;
+		}
+	};
+}
+
+// General Setting dialog
+RESOURCE AVKON_SETTING_ITEM_LIST r_pkt_ping_setting_list
+{
+	flags= EAknSettingItemIncludeHiddenInOrdinal; //EAknSettingItemNumberedStyle;
+	title = STR_r_pktping_setting;
+	initial_number = 1;
+	items =
+	{
+		AVKON_SETTING_ITEM
+		{
+			identifier = EPktPingMyAddress;
+			setting_page_resource = r_pkt_ping_noedit_setting_page;
+			name = STR_r_pktping_my_address;
+		},
+		AVKON_SETTING_ITEM
+		{
+			identifier = EPktPingNrOfPing;
+			setting_page_resource = r_pkt_ping_nr_edit_setting_page;
+			name = STR_r_pktping_nr_of_ping;
+		},
+		AVKON_SETTING_ITEM
+		{
+			identifier = EPktPingDataSize;
+			setting_page_resource = r_pkt_ping_nr_edit_setting_page;
+			name = STR_r_pktping_data_size;
+		},
+//		AVKON_SETTING_ITEM
+//		{
+//			identifier = EPktPingFragment;
+//			setting_page_resource = r_pkt_ping_binary_setting_page;
+//			associated_resource = r_pkt_ping_popup_setting_on_off;
+//			name = STR_r_pktping_dont_fragment;
+//		},
+		AVKON_SETTING_ITEM
+		{
+			identifier = EPktPingTtl;
+			setting_page_resource = r_pkt_ping_nr_edit_setting_page;
+			name = STR_r_pktping_ttl;
+		}
+	};
+}
+RESOURCE AVKON_SETTING_PAGE r_pkt_ping_noedit_setting_page
+{
+	type = EEikCtLabel;
+	editor_resource_id = 0xffff;
+}
+RESOURCE AVKON_SETTING_PAGE r_pkt_ping_readonly_setting_page
+{
+	type = EEikCtEdwin;
+	editor_resource_id = r_pkt_ping_edwin_readonly;
+}
+RESOURCE EDWIN r_pkt_ping_edwin_readonly
+{
+	width = 30;
+	lines = 1;
+	maxlength = 128;
+	flags = KMultiLineExpandingEditorFlags | EEikEdwinDisplayOnly;
+	default_case = EAknEditorLowerCase;
+}
+RESOURCE AVKON_SETTING_PAGE r_pkt_ping_binary_setting_page
+{
+	number= 0;
+	label= "Setting";
+	type = EAknCtPopupSettingList;
+	softkey_resource = R_AVKON_SOFTKEYS_OK_CANCEL;
+}
+
+RESOURCE AVKON_SETTING_PAGE r_pkt_ping_nr_edit_setting_page
+{
+	type = EAknCtIntegerEdwin;
+	editor_resource_id = r_pkt_ping_nr_edit_edwin;
+}
+
+RESOURCE AVKON_INTEGER_EDWIN r_pkt_ping_nr_edit_edwin
+{
+	min = 0;
+	max = 0x7FFFFFFF;
+}
+RESOURCE AVKON_POPUP_SETTING_TEXTS r_pkt_ping_popup_setting_on_off
+{
+	flags = 0;
+	setting_texts_resource = r_pkt_ping_on_off_text;
+	popped_up_texts_resource = r_pkt_ping_popped_up_on_off_texts;
+}
+RESOURCE ARRAY r_pkt_ping_on_off_text
+{
+	items =
+	{
+		AVKON_ENUMERATED_TEXT
+		{	value=1; text = STR_r_pktping_on;},
+		AVKON_ENUMERATED_TEXT
+		{	value=0; text = STR_r_pktping_off;}
+	};
+}
+
+RESOURCE ARRAY r_pkt_ping_popped_up_on_off_texts
+{
+	items =
+	{
+		LBUF
+		{	txt = STR_r_pktping_on;},
+		LBUF
+		{	txt = STR_r_pktping_off;}
+	};
+}
+
+RESOURCE DIALOG r_pkt_ping_large_info_message
+{
+	flags = EGeneralQueryFlags | EEikDialogFlagNoBorder | EEikDialogFlagNoShadow;
+	buttons = R_AVKON_SOFTKEYS_OK_EMPTY;
+	items =
+	{
+		DLG_LINE
+		{
+			type = EAknCtPopupHeadingPane;
+			itemflags = EEikDlgItemNonFocusing;
+			id = EAknMessageQueryHeaderId;
+			control = AVKON_HEADING
+			{
+			};
+		},
+		DLG_LINE
+		{
+			type = EAknCtMessageQuery;
+			id = EAknMessageQueryContentId;
+			control = AVKON_MESSAGE_QUERY
+			{
+			};
+		}
+	};
+}
+
+RESOURCE DIALOG r_pkt_ping_connect_wait_note_no_cancel
+{
+	flags = EAknProgressNoteFlags;
+	buttons = R_AVKON_SOFTKEYS_EMPTY;
+	items =
+	{
+		DLG_LINE
+		{
+			type = EAknCtNote;
+			id = ECommonProgProgress;
+			control = AVKON_NOTE
+			{
+				layout = EWaitLayout;
+				singular_label = "Connecting...";
+				plural_label = "Connecting...";
+				animation = R_QGN_GRAF_WAIT_BAR_ANIM;
+			};
+		}
+	};
+}
